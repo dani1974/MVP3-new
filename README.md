@@ -27,34 +27,50 @@ A plataforma utilizada para a construção do pipeline de dados foi o Databricks
 
 # Detalhamento
 
-### 1. Busca pelos Dados (E - Extração)
+## Busca pelos Dados
 Foi escolhido o conjunto de dados "Hospital General Information" disponível no Kaggle. Este conjunto de dados contém informações detalhadas sobre mais de 4.000 hospitais nos EUA, incluindo taxas de mortalidade, segurança do atendimento, experiência do paciente, entre outros indicadores de qualidade.
 
 ### Fonte dos dados:
-Utilizarei o arquivo "Hospital General Information.csv" O conjunto de dados foi baixado de [ https://data.medicare.gov/data/hospital-compare ] Base de Dados: Foi escolhida uma base de dados do Kaggle. Link para os Dados: https://www.kaggle.com/datasets/center-for-medicare-and-medicaid/hospital-ratings
+Foi escolhida uma base de dados do Kaggle. Link para os Dados: https://www.kaggle.com/datasets/center-for-medicare-and-medicaid/hospital-ratings
 
-### Campos do conjunto de dados:
-ID do provedor Nome do Hospital Endereço Cidade Estado CEP Nome do Condado Número de telefone Tipo de hospital Propriedade Hospitalar Serviços de emergência Atende aos critérios para uso significativo de EHRs Classificação geral do hospital Nota de rodapé sobre a classificação geral do hospital Comparação nacional de mortalidade Nota de rodapé sobre comparação nacional de mortalidade Comparação nacional de segurança do atendimento Nota de rodapé sobre comparação nacional de segurança de cuidados Comparação nacional de readmissão Nota de rodapé sobre comparação nacional de readmissão Comparação nacional da experiência do paciente Nota de rodapé sobre comparação nacional da experiência do paciente Comparação nacional da eficácia dos cuidados Nota de rodapé sobre a eficácia dos cuidados de saúde Comparação nacional da pontualidade do atendimento Nota de rodapé sobre a oportunidade do atendimento na comparação nacional Uso eficiente de comparação nacional de imagens médicas Uso eficiente de comparação nacional de imagens médicas
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/b87f6764-d1f5-4e5b-9505-9a58bcf30b35)
 
-### 2. Coleta dos Dados (E - Extração)
-Os dados foram baixados do Kaggle e armazenados localmente. Posteriormente, foram carregados para o Databricks File System (DBFS) para facilitar o processamento e a análise na nuvem.
+### Coleta dos Dados 
 
-### Processo de Coleta
+### Processo de Coleta:
+•	Criação e configuração de um bucket no AWS S3.
+•	Upload do arquivo "Hospital General Information.csv" para o bucket S3.
+•	Montagem do bucket S3 no Databricks.
+•	Carregamento dos dados do CSV no Spark DataFrame.
 
-Criação e configuração de um bucket no AWS S3.
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/3afb6f1f-9dc9-42ef-b40d-6a04e89a915c)
 
-Upload do arquivo "Hospital General Information.csv" para o bucket S3.
+## Transformação dos Dados
 
-Montagem do bucket S3 no Databricks.
+### Renomeação de Colunas
+As colunas foram renomeadas para português para facilitar a análise.
 
-Carregamento dos dados do CSV no Spark DataFrame.
+### Seleção de Colunas Relevantes
+Selecionamos apenas as colunas relevantes para a análise.
 
-### Fonte dos Dados: Kaggle
+### Limpeza de Dados
+Removemos valores nulos e substituímos valores categóricos por numéricos.
 
-Local de Armazenamento:
+### Validação dos Dados
+Verificação de valores nulos e estatísticas descritivas para garantir a qualidade dos dados.
 
-Licença de Uso: Licença Kaggle
+### Screenshots
 
-Plataforma: Usarei a Plataforma Databricks para a construção do pipeline de dados, utilizando a versão Databricks Community Edition.
+![Transformação no Databricks](path/to/screenshot_transformacao.png)
+
+
+
+
+
+
+
+
+
+
 
 
