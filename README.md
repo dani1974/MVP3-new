@@ -349,6 +349,11 @@ A qualidade dos dados é satisfatória para a análise pretendida. Apesar da pre
 ### 6.b. Solução do Problema
 Consultas SQL para Responder às Perguntas de Negócio
 
+### Upload do Notebook Exportado para o S3:
+
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/2b4ec1be-d5fc-4393-b7d6-1af8cbb7fc6e)
+
+
 -------------------------------------------------------------------------------- **RESPOSTAS AS PERGUNTAS DE NEGÓCIO**--------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### b.1) Quais são os principais fatores que influenciam a satisfação do paciente?
