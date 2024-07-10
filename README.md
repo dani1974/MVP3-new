@@ -30,6 +30,8 @@ A plataforma utilizada para a construção do pipeline de dados foi o Databricks
 
 # Detalhamento
 
+![Fluxo dos dados drawio](https://github.com/dani1974/MVP3-new/assets/39570553/b00d1136-d493-4424-894c-6d63cf797bb3)
+
 ## Busca pelos Dados
 Foi escolhido o conjunto de dados "Hospital General Information" disponível no Kaggle. Este conjunto de dados contém informações detalhadas sobre mais de 4.000 hospitais nos EUA, incluindo taxas de mortalidade, segurança do atendimento, experiência do paciente, entre outros indicadores de qualidade.
 
