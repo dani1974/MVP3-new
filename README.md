@@ -1,5 +1,5 @@
+## MVP 3 - Disciplica de Engenharia de Dados
 # Análise da Qualidade dos Hospitais nos EUA
-### Nome: Daniela Lameirão Pinto de Abreu Rosas
 
 O objetivo deste trabalho é construir um pipeline de dados utilizando tecnologias na nuvem para analisar a qualidade dos hospitais nos EUA. O foco é identificar os principais fatores que influenciam a satisfação do paciente, avaliar a variação da taxa de mortalidade entre diferentes tipos de hospitais, explorar a correlação entre a eficácia dos cuidados e a taxa de readmissão, e identificar os estados com os melhores e piores desempenhos em termos de segurança do atendimento hospitalar..
 
