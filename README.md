@@ -3,7 +3,8 @@
 
 O objetivo deste trabalho é construir um pipeline de dados utilizando tecnologias na nuvem para analisar a qualidade dos hospitais nos EUA. O foco é identificar os principais fatores que influenciam a satisfação do paciente, avaliar a variação da taxa de mortalidade entre diferentes tipos de hospitais, explorar a correlação entre a eficácia dos cuidados e a taxa de readmissão, e identificar os estados com os melhores e piores desempenhos em termos de segurança do atendimento hospitalar..
 
-#### url do projeto publicado pelo databricks : [Veja o notebook completo no Databricks](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2295645624184554/1503296092627704/3793646805506685/latest.html)
+#### url do projeto publicado pelo databricks : https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2295645624184554/1950158164922756/3793646805506685/latest.html
+
 
 ### Problema a Ser Resolvido
 Identificar e analisar os fatores que influenciam a qualidade do atendimento hospitalar nos Estados Unidos.
