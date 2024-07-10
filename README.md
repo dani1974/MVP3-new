@@ -146,6 +146,12 @@ Os dados transformados foram carregados para o Data Warehouse no Databricks. Uti
 Criação das tabelas de dimensões e de fatos.
 Inserção dos dados transformados nas tabelas criadas.
 
+**Criação do banco de dados no Red shift:**
+Criar um banco de dados ou configurar o Redshift para receber dados.
+
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/b1c202be-58bf-479c-9df4-d797c9bbafc6)
+
+
 ### 6. Qualidade dos Dados : Análise Exploratória de Dados (EDA)
 Na Análise Exploratória de Dados (EDA), verificamos os seguintes aspectos:
 
