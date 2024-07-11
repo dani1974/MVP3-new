@@ -49,7 +49,7 @@ A imagem representa de forma clara e visual o processo de ETL dos dados no Datab
 **Armazenamento Final (Amazon Redshift)**
 •	Dados transformados são armazenados no Amazon Redshift para análise
 
-## Busca pelos Dados
+## Etapa 1. Busca pelos Dados
 Foi escolhido o conjunto de dados "Hospital General Information" disponível no Kaggle. Este conjunto de dados contém informações detalhadas sobre mais de 4.000 hospitais nos EUA, incluindo taxas de mortalidade, segurança do atendimento, experiência do paciente, entre outros indicadores de qualidade.
 
 ### Fonte dos dados:
@@ -57,11 +57,12 @@ Foi escolhida uma base de dados do Kaggle. Link para os Dados: https://www.kaggl
 
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/b87f6764-d1f5-4e5b-9505-9a58bcf30b35)
 
-### Coleta dos Dados 
+### Etapa 2. Coleta dos Dados 
+Foram realizadas as configurações para extrair (Extract) os dados da fonte para o AWS S3 , no caso a pasta "Hospital General Information" do bucket "data-storage-1421”
 
 ### Processo de Coleta:
 •	Criação e configuração de um bucket no AWS S3.
-•	Upload do arquivo "Hospital General Information.csv" para o bucket S3.
+•	Upload do arquivo "Hospital General Information.csv" para o bucket S3 "data-storage-1421”.
 
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/3afb6f1f-9dc9-42ef-b40d-6a04e89a915c)
 
@@ -75,7 +76,7 @@ Foi escolhida uma base de dados do Kaggle. Link para os Dados: https://www.kaggl
 
 ### Modelagem dos Dados (Modelagem)
 
-### 4. Modelagem dos Dados (T - Transformação)
+### Etapa 3. Modelagem dos Dados (T - Transformação)
 Foi construído um modelo de dados em Esquema Estrela, que é uma abordagem comum para Data Warehouses. As tabelas de dimensões e fatos foram criadas e populadas de acordo com os dados disponíveis.
 
 #### Esquema Estrela
@@ -155,7 +156,7 @@ Propriedade_Hospitalar_Index: Identificador da propriedade hospitalar. (VARCHAR(
 
 Técnica Utilizada: Os dados foram coletados do Kaggle e armazenados no Databricks File System (DBFS). Posteriormente, os dados foram carregados no Spark DataFrame e processados para análise.
 
-### 5. Carga dos Dados (L - Carga)
+### Etapa 4. Carga dos Dados (L - Carga)
 Os dados transformados foram carregados para o Data Warehouse no Databricks. Utilizamos pipelines de ETL para garantir a carga eficiente dos dado
 
 **Processos de Carga**
@@ -169,14 +170,16 @@ Criação do banco de dados ou configurar o Redshift para receber dados.
 
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/ee559e5d-e367-446d-a541-ccd4663ac5ab)
 
-### 6. Qualidade dos Dados : Análise Exploratória de Dados (EDA)
-Na Análise Exploratória de Dados (EDA), verificamos os seguintes aspectos:
+### Etapa 5.a Qualidade dos Dados : Análise Exploratória de Dados (EDA)
+Na Análise Exploratória de Dados (EDA), sta etapa foi realizada no Databricks com os Recursos do Spark DataFrame API
 
-**6.1. Valores Nulos**
+verificamos os seguintes aspectos:
+
+**5.a.a. Valores Nulos**
 
 Já foi verificado anteriormente que colunas com mais de 10% de valores nulos foram excluídas.
 
-**6.2. Estatísticas Descritivas**
+**5.a.b. Estatísticas Descritivas**
 
 Será usado SQL para gerar algumas estatísticas descritivas:
 
@@ -199,7 +202,7 @@ Efetividade do Atendimento: A média de 0.43 é a mais baixa entre os índices, 
 Pontualidade do Atendimento: A média de 1.28 indica que a pontualidade do atendimento está acima da média mais baixa, mas ainda há espaço para melhorias.
 Uso Eficiente de Imagens: A média de 0.80 sugere que o uso eficiente de imagens médicas está mais próximo das categorias mais baixas.
 
-### 6.3 Verificar as Categorias em Cada Coluna e Contar as Frequências
+### 5.a.c. Verificar as Categorias em Cada Coluna e Contar as Frequências
 
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/98e66eae-6ead-41a2-b0dc-b2fb7baac3c4)
 
@@ -246,7 +249,7 @@ Essa análise nos mostra que a maioria dos hospitais está na média ou abaixo d
 
 Os dados apresentam variações significativas entre os hospitais em relação aos índices avaliados. A distribuição dos valores indica que há mais hospitais com desempenho abaixo da média nacional em diversas categorias.
 
-### Histogramas com Curva KDE
+### 5.a.d. Histogramas com Curva KDE
 
 Os histogramas com a curva KDE (Kernel Density Estimation) mostram a distribuição das categorias em cada coluna categórica do DataFrame.
 
@@ -280,7 +283,7 @@ Interpretação: A pontualidade do atendimento é variável, com muitos hospitai
 Distribuição: Há uma distribuição relativamente uniforme entre as categorias, com uma leve predominância da categoria 1.
 Interpretação: O uso eficiente de imagens médicas varia consideravelmente, com muitos hospitais classificados na média ou abaixo.
 
-### Box Plots
+### 5.a.e. Box Plots
 
 Os box plots fornecem uma visão clara da distribuição dos dados, mostrando a mediana, quartis e possíveis outliers.
 
@@ -320,7 +323,7 @@ Box Plot: A mediana está na categoria 1, com uma distribuição relativamente u
 Interpretação: O uso eficiente de imagens médicas varia consideravelmente entre os hospitais.
 Ação: Identificar hospitais com desempenho inferior para recomendar melhorias no uso eficiente de imagens médicas.
 
-### Verificação da Distribuição Normal
+### 5.a.f. Verificação da Distribuição Normal
 A verificação da distribuição normal ajuda a entender se os dados seguem uma distribuição normal ou se apresentam uma distribuição diferente.
 
 **Comparação Nacional de Segurança do Atendimento_Index_Index**
@@ -341,7 +344,7 @@ Distribuição: Distribuição relativamente equilibrada entre as categorias, co
 **Comparação Nacional do Uso Eficiente de Imagens Médicas_Index_Index**
 Distribuição: Picos em cada categoria, indicando uma distribuição categórica.
 
-### Conclusão da Análise da Qualidade dos Dados
+### 5.a.g. Conclusão da Análise da Qualidade dos Dados
 
 **Verificação de Valores Nulos**
 Após a verificação e tratamento dos valores nulos, o conjunto de dados foi aprimorado para garantir que apenas as colunas com dados completos ou com uma quantidade mínima de valores nulos fossem mantidas. Isso assegura que a análise subsequente seja confiável e representativa.
@@ -372,17 +375,11 @@ A análise da distribuição dos dados através de histogramas revelou que a mai
 
 A qualidade dos dados é satisfatória para a análise pretendida. Apesar da presença de outliers e algumas distribuições não normais, os dados são robustos o suficiente para fornecer insights significativos sobre os fatores que influenciam a satisfação do paciente. As etapas de limpeza e transformação garantiram a integridade e a representatividade dos dados, permitindo uma análise confiável e detalhada.
 
+
+-------------------------------------------------------------------------------- **SOLUÇÕES ÀS PERGUNTAS DE NEGÓCIO**-------------------------------------------------------------------------------------------------------------
+
 ### 6.b. Solução do Problema
 Consultas SQL para Responder às Perguntas de Negócio
-
-### Upload do Notebook Exportado para o S3:
-
-![image](https://github.com/dani1974/MVP3-new/assets/39570553/2b4ec1be-d5fc-4393-b7d6-1af8cbb7fc6e)
-
-
--------------------------------------------------------------------------------- **RESPOSTAS AS PERGUNTAS DE NEGÓCIO**--------------------------------------------------------------------------------------------------------------------------------------------------
-
-### b.1) Quais são os principais fatores que influenciam a satisfação do paciente?
 
 Objetivo: Identificar quais aspectos do atendimento hospitalar têm maior impacto na experiência do paciente.
 
@@ -411,7 +408,7 @@ Uso Eficiente de Imagens (corr_Uso_Eficiente_Imagens): -0.08022861962049851
 
 **Uso Eficiente de Imagens (-0.08)**: Interpretação: Há uma correlação negativa muito fraca entre o uso eficiente de imagens e a satisfação do paciente. Isso indica que a relação é praticamente inexistente. Conclusão: O uso eficiente de imagens médicas tem um impacto muito pequeno ou nulo na satisfação do paciente.
 
-### Resposta 1
+### 6.b.a.b - Resposta 1
 
 Os principais fatores que mais influenciam a satisfação do paciente foram:
 
@@ -427,10 +424,10 @@ Estes resultados fornecem insights valiosos sobre quais aspectos do atendimento 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Pergunta 2. Como a taxa de mortalidade hospitalar varia entre diferentes tipos de hospitais (e.g., governamentais, privados)?
+### 6.b.b. Pergunta 2. Como a taxa de mortalidade hospitalar varia entre diferentes tipos de hospitais (e.g., governamentais, privados)?
 Objetivo: Avaliar a taxa de mortalidade para fornecer insights sobre a eficácia e a segurança dos cuidados prestados em diferentes tipos de hospitais.
 
-### Resposta 2
+### 6.b.b.a. Resposta 2
 Gráfico de Barras: Média da Taxa de Mortalidade por Tipo de Hospital
 
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/12f280d5-6dcc-41f4-828f-2435b7522471)
@@ -468,15 +465,15 @@ Comentário: Hospitais privados apresentam uma taxa de mortalidade menor em comp
 
 Comentário: Hospitais voluntários privados sem fins lucrativos têm a menor taxa de mortalidade média, sugerindo que este modelo de hospital pode proporcionar um atendimento de qualidade superior devido ao foco na saúde dos pacientes em vez de lucros.
 
-### Conclusão
+### 6.b.b.b. Resposta 2
 Os resultados indicam que a mortalidade hospitalar varia significativamente entre diferentes tipos de hospitais. Hospitais "Physician" e "Voluntary non-profit - Other" têm as maiores taxas de mortalidade, enquanto "Private" e "Voluntary non-profit - Private" têm as menores. Isso sugere que a estrutura organizacional e o modelo de financiamento de um hospital podem ter um impacto significativo na qualidade do atendimento e, consequentemente, na taxa de mortalidade dos pacientes.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 3. Existe uma correlação entre a eficácia dos cuidados e a taxa de readmissão?
+### 6.b.c.- Pergunta 3. Existe uma correlação entre a eficácia dos cuidados e a taxa de readmissão?
 Objetivo: Analisar se hospitais que prestam cuidados eficazes também apresentam menores taxas de readmissão.
 
-### Resposta 3:
+### 6.b.c.a. -  Resposta 3:
 Correlação entre Efetividade do Atendimento e Taxa de Readmissão: -0.04864618495323882
 
 A correlação entre a efetividade do atendimento e a taxa de readmissão é muito baixa e negativa. Isso indica que não há uma relação forte entre a efetividade dos cuidados e a taxa de readmissão nos hospitais analisados. Em outras palavras, melhorias na efetividade dos cuidados não parecem estar associadas a uma redução nas taxas de readmissão dos pacientes.
@@ -485,7 +482,7 @@ A correlação entre a efetividade do atendimento e a taxa de readmissão é mui
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/1f0d0f9a-dc0e-4bf8-ae79-0516d7ac0dff)
 
 
-### Resposta 3:
+### 6.b.c.b. Resposta 3:
 
 Os pontos estão espalhados uniformemente ao longo dos valores de efetividade do atendimento (0 a 3) e taxa de readmissão (0 a 3).
 
@@ -497,12 +494,12 @@ Isso é consistente com a dispersão dos pontos, que não mostra uma relação l
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 4. Quais estados têm os melhores e piores desempenhos em termos de segurança do atendimento hospitalar?
+### 6.b.d. - Pergunta 4. Quais estados têm os melhores e piores desempenhos em termos de segurança do atendimento hospitalar?
 Objetivo: Avaliar a segurança do atendimento por estado para destacar áreas geográficas que necessitam de melhorias específicas na saúde pública.
 
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/0f735d17-ee43-43c6-ae63-df5f8d716da8)
 
-### Resposta 4: Melhores e Piores Estados em Termos de Segurança do Atendimento
+### 6.b.d.a - Resposta 4: Melhores e Piores Estados em Termos de Segurança do Atendimento
 
 **5 Melhores Estados:**
 
@@ -537,7 +534,7 @@ Maryland está na mesma situação dos dois estados anteriores, necessitando de 
 
 Guam (GU): Média de Segurança do Atendimento: 0.00 Guam completa a lista dos piores estados, com uma média de segurança nula.
 
-### Conclusão
+### 6.b.d.b - Resposta 4 : Conclusão
 Os resultados destacam uma disparidade significativa na segurança do atendimento hospitalar entre os estados dos EUA. Enquanto alguns estados como o Distrito de Colúmbia, Nova Jersey e Connecticut mostram um excelente desempenho, outros como Porto Rico, Samoa Americana e Guam necessitam de atenção urgente para melhorar a segurança e a qualidade dos serviços de saúde prestados. Isso aponta para a necessidade de políticas direcionadas e melhorias na gestão hospitalar nos estados com desempenho inferior.
 
 ### Análise Geral
@@ -555,7 +552,7 @@ Em resumo, melhorar a segurança do atendimento e a eficiência, juntamente com 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Autoavaliação
+## Etapa 7 - Autoavaliação
 
 **Atingimento dos Objetivos**
 
@@ -582,7 +579,9 @@ Interpretação dos Resultados: A interpretação dos resultados para gerar insi
 A maior dificuldade foi a execução de consultas SQL complexas e a adaptação de cálculos de correlação para esse formato e a etapa de transformação. Esta etapa demorou mais do que o esperado devido à necessidade de ajustar continuamente as consultas para garantir a precisão dos resultados. Além disso, o tratamento de dados e a decisão sobre como lidar com valores nulos e outliers também exigiram um tempo considerável, pois precisávamos garantir a integridade e a qualidade dos dados para análises subsequentes.
 Com base nessas experiências, é evidente que o planejamento cuidadoso e a compreensão detalhada dos dados são cruciais para a execução eficiente de projetos de engenharia de dados. 
 
-**Trabalhos Futuros**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**Etapa 8 - Trabalhos Futuros**
 Para enriquecer e expandir a análise realizada, algumas propostas para trabalhos futuros incluem:
 
 Aprofundamento na Análise de Fatores: Realizar análises mais detalhadas para identificar outros fatores que influenciam a satisfação do paciente, além dos já identificados, como segurança e pontualidade do atendimento. Utilizar técnicas de machine learning para descobrir padrões ocultos nos dados. Segmentação dos Dados:
