@@ -258,6 +258,8 @@ Os dados apresentam variações significativas entre os hospitais em relação a
 
 ### 5.a.d. Histogramas com Curva KDE
 
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/9132393b-0dd2-4f5e-ac08-171c8d160592)
+
 Os histogramas com a curva KDE (Kernel Density Estimation) mostram a distribuição das categorias em cada coluna categórica do DataFrame.
 
 **Comparação Nacional de Segurança do Atendimento_Index_Index**
@@ -291,6 +293,8 @@ Distribuição: Há uma distribuição relativamente uniforme entre as categoria
 Interpretação: O uso eficiente de imagens médicas varia consideravelmente, com muitos hospitais classificados na média ou abaixo.
 
 ### 5.a.e. Box Plots
+
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/9e1babd5-a7d0-47d4-9bb9-13c45c7f473f)
 
 Os box plots fornecem uma visão clara da distribuição dos dados, mostrando a mediana, quartis e possíveis outliers.
 
