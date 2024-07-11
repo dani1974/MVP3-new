@@ -59,8 +59,6 @@ Foram realizadas as configurações para extrair (Extract) os dados da fonte par
 
 •	Carregamento dos dados do CSV no Spark DataFrame.
 
-![image](https://github.com/dani1974/MVP3-new/assets/39570553/07594828-1339-4b72-be0e-057a9c4be549)
-
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/d0c59621-ffef-4e62-bd93-47d1a64ba0a1)
 
 
