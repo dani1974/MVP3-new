@@ -167,8 +167,7 @@ Inserção dos dados transformados nas tabelas criadas.
 
 Criação do banco de dados ou configurar o Redshift para receber dados.
 
-![image](https://github.com/dani1974/MVP3-new/assets/39570553/b1c202be-58bf-479c-9df4-d797c9bbafc6)
-
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/ee559e5d-e367-446d-a541-ccd4663ac5ab)
 
 ### 6. Qualidade dos Dados : Análise Exploratória de Dados (EDA)
 Na Análise Exploratória de Dados (EDA), verificamos os seguintes aspectos:
