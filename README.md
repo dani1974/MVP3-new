@@ -62,9 +62,11 @@ Foram realizadas as configurações para extrair (Extract) os dados da fonte par
 
 ### Processo de Coleta:
 •	Criação e configuração de um bucket no AWS S3.
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/3afb6f1f-9dc9-42ef-b40d-6a04e89a915c)
+
 •	Upload do arquivo "Hospital General Information.csv" para o bucket S3 "data-storage-1421”.
 
-![image](https://github.com/dani1974/MVP3-new/assets/39570553/3afb6f1f-9dc9-42ef-b40d-6a04e89a915c)
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/d4409cf2-0af3-43ff-9e95-8a01fec094eb)
 
 •	Montagem do bucket S3 no Databricks.
 •	Carregamento dos dados do CSV no Spark DataFrame.
