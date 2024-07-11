@@ -31,8 +31,23 @@ A plataforma utilizada para a construção do pipeline de dados foi o Databricks
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Detalhamento
+A imagem representa de forma clara e visual o processo de ETL dos dados no Databricks(Extração, Transformação e Carga) desde a fonte no Kaggle até o armazenamento final no Amazon Redshift, utilizando serviços da AWS e executando operações críticas dentro de uma VPC para garantir segurança e eficiência.
 
 ![Fluxo dos dados drawio](https://github.com/dani1974/MVP3-new/assets/39570553/b00d1136-d493-4424-894c-6d63cf797bb3)
+
+**Fonte dos Dados (Kaggle)**
+•	Dados são baixados manualmente do Kaggle
+
+**Armazenamento Inicial (Amazon S3):** 
+•	Dados baixados são carregados em um bucket S3
+
+**Processamento ETL (Databricks):** 
+•	Dados são extraídos do S3
+•	Transformações são aplicadas para modificar e preparar os dados.
+•	Dados transformados são carregados no Redshift 
+
+**Armazenamento Final (Amazon Redshift)**
+•	Dados transformados são armazenados no Amazon Redshift para análise
 
 ## Busca pelos Dados
 Foi escolhido o conjunto de dados "Hospital General Information" disponível no Kaggle. Este conjunto de dados contém informações detalhadas sobre mais de 4.000 hospitais nos EUA, incluindo taxas de mortalidade, segurança do atendimento, experiência do paciente, entre outros indicadores de qualidade.
