@@ -34,20 +34,6 @@ A imagem representa de forma clara e visual o processo de ETL dos dados no Datab
 
 ![Fluxo dos dados drawio](https://github.com/dani1974/MVP3-new/assets/39570553/b00d1136-d493-4424-894c-6d63cf797bb3)
 
-**Fonte dos Dados (Kaggle)**
-•	Dados são baixados manualmente do Kaggle
-
-**Armazenamento Inicial (Amazon S3):** 
-•	Dados baixados são carregados em um bucket S3
-
-**Processamento ETL (Databricks):** 
-•	Dados são extraídos do S3
-•	Transformações são aplicadas para modificar e preparar os dados.
-•	Dados transformados são carregados no Redshift 
-
-**Armazenamento Final (Amazon Redshift)**
-•	Dados transformados são armazenados no Amazon Redshift para análise
-
 ## Etapa 1. Busca pelos Dados
 Foi escolhido o conjunto de dados "Hospital General Information" disponível no Kaggle. Este conjunto de dados contém informações detalhadas sobre mais de 4.000 hospitais nos EUA, incluindo taxas de mortalidade, segurança do atendimento, experiência do paciente, entre outros indicadores de qualidade.
 
@@ -68,6 +54,9 @@ Foram realizadas as configurações para extrair (Extract) os dados da fonte par
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/d4409cf2-0af3-43ff-9e95-8a01fec094eb)
 
 •	Montagem do bucket S3 no Databricks.
+
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/97623b03-4f02-4b56-8320-f2d49d82ef17)
+
 •	Carregamento dos dados do CSV no Spark DataFrame.
 
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/07594828-1339-4b72-be0e-057a9c4be549)
