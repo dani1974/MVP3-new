@@ -168,9 +168,30 @@ Inserção dos dados transformados nas tabelas criadas.
 
 **Criação do banco de dados no Red shift:**
 
-Criação do banco de dados ou configurar o Redshift para receber dados.
+**Criação do banco de dados ou configurar o Redshift para receber dados.**
 
-![image](https://github.com/dani1974/MVP3-new/assets/39570553/ee559e5d-e367-446d-a541-ccd4663ac5ab)
+Foi criado um cluster no Amazon Redshift com o nome "redshift-cluster-1". Configuramos o cluster para estar acessível publicamente e adicionamos regras de segurança para permitir acesso via TCP na porta 5439.
+
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/c546fd9a-51ff-4647-9310-5e8235102d7d)
+
+Configuração das Credenciais e Conexão: As credenciais da AWS foram configuradas usando as chaves de acesso. Utilizamos o sqlalchemy para criar uma conexão com o Redshift, especificando o endpoint, nome do banco de dados, usuário e senha.
+
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/745ea0d5-ac65-48d4-b94e-c774e0b58977)
+
+**Carregamento dos Dados:**
+•	Dados foram carregados de um arquivo CSV para um DataFrame do Spark.
+•	O DataFrame do Spark foi convertido para um DataFrame do Pandas.
+•	Os dados do Pandas DataFrame foram carregados para uma tabela no Redshift usando SQLAlchemy.
+
+**Verificação dos Dados:**
+•	Conectamo-nos ao banco de dados dev no editor de consultas do Redshift.
+•	Executamos uma consulta SQL para verificar se os dados foram carregados corretamente.
+•	Consultas e Visualização:
+
+Utilizamos o editor de consultas do Redshift para executar consultas e visualizar os dados carregados.
+
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/5bdd9d59-e446-4bde-803a-4c7e6782fe8a)
+
 
 ### Etapa 5.a Qualidade dos Dados : Análise Exploratória de Dados (EDA)
 Na Análise Exploratória de Dados (EDA), sta etapa foi realizada no Databricks com os Recursos do Spark DataFrame API
