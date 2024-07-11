@@ -54,12 +54,10 @@ Foram realizadas as configurações para extrair (Extract) os dados da fonte par
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/d4409cf2-0af3-43ff-9e95-8a01fec094eb)
 
 •	Montagem do bucket S3 no Databricks.
-
-![image](https://github.com/dani1974/MVP3-new/assets/39570553/97623b03-4f02-4b56-8320-f2d49d82ef17)
-
 •	Carregamento dos dados do CSV no Spark DataFrame.
 
 ![image](https://github.com/dani1974/MVP3-new/assets/39570553/d0c59621-ffef-4e62-bd93-47d1a64ba0a1)
+![image](https://github.com/dani1974/MVP3-new/assets/39570553/97623b03-4f02-4b56-8320-f2d49d82ef17)
 
 
 ### Modelagem dos Dados (Modelagem)
